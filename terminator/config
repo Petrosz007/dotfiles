@@ -1,0 +1,43 @@
+[global_config]
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 885cedf6-dd35-46d4-a9ab-3685618b4ca9
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 10:45
+      size = 945, 1025
+      title = petrosz@petrosz-desktop: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = petrosz
+      type = Terminal
+      uuid = 885cedf6-dd35-46d4-a9ab-3685618b4ca9
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    palette = "#080303:#512946:#54693a:#c38957:#1e5566:#1b3241:#224a58:#2c5337:#270b0b:#712d5e:#6e9340:#ffb05e:#1e738d:#1d425a:#34e2e2:#55a16a"
+  [[lake_wallpaper]]
+    cursor_color = "#aaaaaa"
+  [[petrosz]]
+    audible_bell = True
+    background_color = "#002b36"
+    background_darkness = 0.65
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    cursor_shape = ibeam
+    font = Hack 11
+    foreground_color = "#839496"
+    icon_bell = False
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
