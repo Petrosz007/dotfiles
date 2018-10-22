@@ -1,0 +1,120 @@
+/**
+ * User: qball
+ * Copyright: Dave Davenport
+ */
+* {
+    text-color:  #D6B5A0;
+    background-color:  rgba(0,0,0,0);
+    dark: #272727;
+    // Black
+    black:       #272727;
+    lightblack:  #9C8474;
+    //
+    // Red
+    red:         #455158;
+    lightred:    #455158;
+    //
+    // Green
+    green:       #565056;
+    lightgreen:  #565056;
+    //
+    // Yellow
+    yellow:      #495A5F;
+    lightyellow:     #495A5F;
+    //
+    // Blue
+    blue:      #4B707A;
+    lightblue:     #4B707A;
+    //
+    // Magenta
+    magenta:      #5D635E;
+    lightmagenta:     #5D635E;
+    //
+    // Cyan
+    cyan:      #737470;
+    lightcyan:     #737470;
+    //
+    // White
+    white:      #D6B5A0;
+    lightwhite:     #D6B5A0;
+    //
+    // Bold, Italic, Underline
+    highlight:     bold #ffffff;
+}
+#window {
+    fullscreen: true;
+    location: west;
+    anchor:   west;
+    border:  0px 2px 0px 0px;
+    text-color: @lightwhite;
+
+    orientation: horizontal;
+    children: [mainbox, dummy];
+}
+
+#dummy {
+    expand: true;
+}
+
+#sidebar {
+    border: 2px 0px 0px 0px;
+    background-color: @lightblack;
+    padding: 10px;
+}
+#button selected {
+    border-color: @lightmagenta;
+    text-color: @lightmagenta;
+}
+#entry {
+    width: 20em;
+}
+#inputbar {
+    background-color: @lightblack;
+    text-color: @lightmagenta;
+    padding: 4px;
+    border: 0px 0px 2px 0px;
+}
+#mainbox {
+    expand: false;
+    background-color: #1c1c1cee;
+    spacing: 1em;
+}
+#listview {
+    padding: 0em 0.4em 0em 1em;
+    dynamic: false;
+    lines: 0;
+}
+#element selected  normal {
+    background-color: @lightmagenta;
+}
+#element normal active {
+    text-color: @lightblue;
+}
+#element normal urgent {
+    text-color: @lightred;
+}
+#element alternate normal {
+}
+#element alternate active {
+    text-color: @lightblue;
+}
+#element alternate urgent {
+    text-color: @lightred;
+}
+#element selected active {
+    background-color: @lightblue;
+    text-color: @dark;
+}
+#element selected urgent {
+    background-color: @lightred;
+    text-color: @dark;
+}
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
