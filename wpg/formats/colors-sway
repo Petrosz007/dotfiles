@@ -1,0 +1,21 @@
+set $wallpaper wallpaper.png
+
+set $background #272727
+set $foreground #d6b5a0
+
+set $color0 #272727
+set $color1 #455158
+set $color2 #565056
+set $color3 #495a5f
+set $color4 #4b707a
+set $color5 #5d635e
+set $color6 #737470
+set $color7 #d6b5a0
+set $color8 #9c8474
+set $color9 #455158
+set $color10 #565056
+set $color11 #495a5f
+set $color12 #4b707a
+set $color13 #5d635e
+set $color14 #737470
+set $color15 #d6b5a0
