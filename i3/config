@@ -1,5 +1,5 @@
 # Gaps space
-gaps inner 10
+gaps inner 15
 gaps outer 0
 
 #smart_gaps on
@@ -17,6 +17,9 @@ bindsym $mod+t exec --no-startup-id rofi -show window
 
 # Set font to Hack
 font pango:Hack 11
+
+# Run the ~/.xsession script, somehow it doesn't run by default on ubuntu
+exec ~/.xsession
 
 # Polybar
 exec --no-startup-id polybar petrosz &
