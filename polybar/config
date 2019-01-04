@@ -75,7 +75,7 @@ font-2 = "Siji:pixelsize=10;1"
 
 modules-left=i3
 modules-center=title
-modules-right=eth wlan battery temperature cpu memory pulseaudio date powermenu
+modules-right=eth wlan battery temperature backlight filesystem cpu memory pulseaudio date powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -160,7 +160,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = " Time: "
+format-prefix = ""
 ;${colors.foreground-alt}
 format-prefix-foreground = ${colors.underline}
 format-underline = ${colors.underline}
@@ -201,14 +201,14 @@ menu-2-1-exec = menu-open-0
 type = internal/pulseaudio
 
 ; Right clicking will open the sound control panel
-format-volume = %{A3:pavucontrol:}<label-volume> <bar-volume>%{A}
+format-volume = %{A3:pavucontrol:}<label-volume>%{A}
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = muted
 label-muted-foreground = #666
 
-format-volume-prefix = "VOL "
+format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.underline}
 format-volume-underline = ${colors.underline}
 
@@ -237,7 +237,7 @@ type = internal/cpu
 interval = 0.5
 
 ; Left clicking will open the system monitor
-format-prefix = %{A1:gnome-system-monitor:}CPU %{A}
+format-prefix = %{A1:gnome-system-monitor:} %{A}
 format-prefix-foreground = ${colors.underline}
 format-underline = ${colors.underline}
 ; Available tokens:
@@ -251,7 +251,7 @@ format = %{A1:gnome-system-monitor:}<label>%{A}
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM "
+format-prefix = " "
 format-prefix-foreground = ${colors.underline}
 format-underline = ${colors.underline}
 label = %percentage_used%%
@@ -377,9 +377,14 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+format-mounted-prefix = "/ "
+format-mounted-prefix-foreground = ${colors.underline}
+format-mounted = <label-mounted>
+format-mounted-underline = ${colors.underline}
+
+label-mounted = %free%
+
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm_]
 type = internal/bspwm
@@ -471,10 +476,16 @@ bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight-acpi]
+[module/backlight]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+
+format = <label>
+format-underline = ${colors.underline}
+format-prefix = " "
+format-prefix-foreground = ${colors.underline}
+label = %percentage%%
 
 [module/cpu_]
 type = internal/cpu
@@ -497,8 +508,8 @@ type = internal/network
 interface = wlx502b73e01757
 interval = 3.0
 
-format-connected-prefix = "WiFi "
-format-connected-prefix-foreground = ${colors.underline}
+;format-connected-prefix = "WiFi "
+;format-connected-prefix-foreground = ${colors.underline}
 format-connected = <ramp-signal>
 format-connected-underline = ${colors.underline} 
 label-connected = "%essid% %downspeed% %signal%"
@@ -509,12 +520,13 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 4
-ramp-signal-1 = 3
-ramp-signal-2 = 2
-ramp-signal-3 = 1
-ramp-signal-4 = 0
-ramp-signal-foreground = ${colors.foreground}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+;ramp-signal-4 = 
+;ramp-signal-5 = 
+ramp-signal-foreground = ${colors.underline}
 
 [module/eth]
 type = internal/network
@@ -608,20 +620,24 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-format-charging = ^ <label-charging>
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${colors.underline}
+format-charging = <label-charging>
 format-charging-underline = ${colors.underline}
 
-format-discharging = v <label-discharging>
+format-discharging-prefix =
+format-discharging = <ramp-capacity><label-discharging>
 format-discharging-underline = ${colors.underline}
+label-discharging = %percentage%%
 
 format-full-prefix = "BAT "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${colors.underline}
 
-ramp-capacity-0 = )
-ramp-capacity-1 = <
-ramp-capacity-2 = >
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-foreground = ${colors.underline}
 
 animation-charging-0 = /\
 animation-charging-1 = ^
@@ -729,9 +745,11 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp><label>
+format = <ramp> <label>
+format-foreground = ${colors.foreground-alt}
 format-underline = ${colors.underline}
-format-warn = <ramp><label-warn>
+format-warn = <ramp> <label-warn>
+format-warn-foreground = ${colors.foreground-alt}
 format-warn-underline = ${colors.underline}
 
 label = %temperature-c%
@@ -741,7 +759,7 @@ label-warn-foreground = ${colors.secondary}
 ramp-0 = 
 ramp-1 = 
 ramp-2 =  
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${colors.underline}
 
 [module/powermenu_]
 type = custom/menu
