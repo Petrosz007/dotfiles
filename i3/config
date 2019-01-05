@@ -32,6 +32,24 @@ exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.png
 
 
 
+###################
+#    Dropdowns    #
+###################
+
+# Sets up a dropdown terminal, the keybind is at the keybinds section
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 3
+exec --no-startup-id urxvt -name dropdown
+
+# Sets up a dropdown terminal, the keybind is at the keybinds section
+for_window [instance="drop_calc"] floating enable
+for_window [instance="drop_calc"] resize set 625 400
+for_window [instance="drop_calc"] move scratchpad
+for_window [instance="drop_calc"] border pixel 3
+exec --no-startup-id urxvt -name drop_calc
+
 
 
 
@@ -214,6 +232,16 @@ bindsym $mod+r mode "resize"
 #   Keybindings   #
 ###################
 
+### Dropdowns ###
+bindsym $mod+c                  [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+bindsym $mod+u                  [instance="drop_calc"] scratchpad show; [instance="drop_calc"] move position center
+
+### Screenshots ###
+bindsym Print                   exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots'
+bindsym Shift+Print             exec --no-startup-id scrot -u -e 'mv $f ~/Pictures/Screenshots'
+bindsym $mod+Shift+Print        exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/Screenshots'
+
+### Media Keys ###
 bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 10                    # decrease brightness
 bindsym XF86MonBrightnessUp     exec --no-startup-id light -A 10                    # increase brightness
 
