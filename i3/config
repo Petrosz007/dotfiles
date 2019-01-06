@@ -41,12 +41,13 @@ for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 625 400
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 3
-exec --no-startup-id urxvt -name dropdown
+exec --no-startup-id st -n dropdown
 
-#exec --no-startup-id urxvt -name metask
-#for_window [instance="metask"] floating enable;
-#for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move position 0px 22px; resize shrink height 300px; resize grow width 683px; move scratchpad
-#bindsym $mod+Shift+t [instance="metask"] scratchpad show
+for_window [instance="drop-calc"] floating enable
+for_window [instance="drop-calc"] resize set 625 400
+for_window [instance="drop-calc"] move scratchpad
+for_window [instance="drop-calc"] border pixel 3
+exec --no-startup-id st -n drop-calc
 
 
 
@@ -231,6 +232,7 @@ bindsym $mod+r mode "resize"
 
 ### Dropdowns ###
 bindsym $mod+u                  [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+bindsym $mod+c                  [instance="drop-calc"] scratchpad show; [instance="drop-calc"] move position center
 
 ### Lockscreen ###
 bindsym $mod+Shift+z            exec --no-startup-id $HOME/.config/i3/lock_and_blur.sh
