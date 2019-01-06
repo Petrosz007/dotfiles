@@ -19,13 +19,13 @@ bindsym $mod+t exec --no-startup-id rofi -show window
 font pango:Hack 11
 
 # Run the ~/.xsession script, somehow it doesn't run by default on ubuntu
-exec ~/.xsession
+exec --no-startup-id ~/.xsession
 
 # Polybar
 exec --no-startup-id polybar petrosz &
 
 # Transparency
-exec compton
+exec --no-startup-id compton
 
 # Setting the background
 exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.png 
@@ -47,7 +47,7 @@ for_window [instance="drop-calc"] floating enable
 for_window [instance="drop-calc"] resize set 625 400
 for_window [instance="drop-calc"] move scratchpad
 for_window [instance="drop-calc"] border pixel 3
-exec --no-startup-id st -n drop-calc
+exec --no-startup-id st -n drop-calc -e python3 -i $HOME/.config/i3/clear.py
 
 
 
@@ -85,7 +85,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
